@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+    .calci{
+      height: 530px;
+      width: 350px;
+      align-items: center;
+      border: solid;
+      background-color: lightslategray;
+      box-shadow: -30px 30px 30px black ;
+      margin-top: 40px;
+      margin-left: 450px;
+    }
+    .row1{
+        display: flex;
+        align-items: center;
+        justify-content: space-evenly;
+        margin-top:50px ;
+    }
+    .row2{
+        display: flex;
+        align-items: center;
+        justify-content: space-evenly;
+        margin-top:25px ;
+        
+    }
+    .a{
+        font-size: 25px;
+        align-items: center;
+        border: solid;
+        width: 50px;
+        height: 50px;
+        border-radius: 10px;
+        background-color: gray;
+        color: aliceblue;
+        /* border-radius: 20px; */
+        box-shadow: -8px -8px 15px black;
+    }
+    .a:hover{
+        border-radius: 30px;
+        background-color: black;
+    }
+    .b{
+        font-size: 25px;
+        align-items: center;
+        border: solid;
+        width: 45px;
+        height: 45px;
+        border-radius: 20px;
+        background-color: darksalmon;
+        box-shadow: -8px -8px 15px;
+    }
+    .b:hover{
+        background-color: darkorange;
+        border-radius: 5px;
+        border-color:solid black;
+        
+    }
+    input{
+        height: 55px;
+        width: 85%;
+       /* margin-top: 50px; */
+       margin-left: 20px;
+       background-color: black;
+       color: aliceblue;
+       font-size: 25px;
+    }
+    h3{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+   </style>
+</head>
+<body>
+
+   <div class="calci">
+    <h3><i>Calculator</i></h3>
+    <input type="text" id="res" >
+    <div class="row1">
+        <button class="b" onclick="Clear()">c</button>
+        <button class="b" onclick="back()"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-backspace-fill" viewBox="0 0 16 16">
+            <path d="M15.683 3a2 2 0 0 0-2-2h-7.08a2 2 0 0 0-1.519.698L.241 7.35a1 1 0 0 0 0 1.302l4.843 5.65A2 2 0 0 0 6.603 15h7.08a2 2 0 0 0 2-2V3zM5.829 5.854a.5.5 0 1 1 .707-.708l2.147 2.147 2.146-2.147a.5.5 0 1 1 .707.708L9.39 8l2.146 2.146a.5.5 0 0 1-.707.708L8.683 8.707l-2.147 2.147a.5.5 0 0 1-.707-.708L7.976 8 5.829 5.854z"/>
+          </svg></button>
+        <button class="b" onclick="solve('%')">%</button>
+        <button class="b" onclick="solve('/')">&#247;</button>
+    </div>
+    <div class="row2">
+        <button class="a" onclick="res.value+=1">1</button>
+        <button class="a" onclick="res.value+=2">2</button>
+        <button class="a" onclick="res.value+=3">3</button>
+        <button class="b" onclick="solve('-')">&#8722;</button>
+    </div>
+    <div class="row2">
+        <button class="a" onclick="res.value+=4">4</button>
+        <button class="a" onclick="res.value+=5">5</button>
+        <button class="a" onclick="res.value+=6">6</button>
+        <button class="b" onclick="solve('*')">&#215;</button>
+    </div>
+    <div class="row2">
+        <button class="a" onclick="res.value+=7">7</button>
+        <button class="a" onclick="res.value+=8">8</button>
+        <button class="a" onclick="res.value+=9">9</button>
+        <button class="b" onclick="solve('+')">+</button>
+    </div>
+    <div class="row2">
+        <button class="a" onclick="res.value+='00'">00</button>
+        <button class="a" onclick="res.value+=0">0</button>
+        <button class="a" onclick="res.value+='.'">.</button>
+        <button class="b" onclick="result()">=</button>
+    </div>
+   </div>
+   <script>
+     function solve(val){
+        let v=document.getElementById('res').value+=val
+     }function result(){
+        let exp1=document.getElementById("res").value
+        let num= eval(exp1)
+        document.getElementById('res').value=num
+     }
+     function back(){
+        let ev=document.getElementById("res").value
+        ev1=ev.slice(0,-1)
+        document.getElementById('res').value=ev1
+     }
+     function Clear(){
+        document.getElementById('res').value=''
+     }
+     
+   </script>
+  
+</body>
+</html>
